@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Check Email || Charmain</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/checkEmail.css">
+    </head>
+
+    <body>
+        <div class="newsletter-subscribe">
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">We need you</h2>
+                    <p class="text-center">Before you register new account you must confirm your email first Please Enter Your email Below. </p>
+                </div>
+                <form class="form-inline" method="post"id="myForm">
+                    <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Your Email"></div>
+                    <div class="form-group"><button class="btn btn-primary" type="button">Ok </button></div>
+                </form>
+                <p class="text-center" id="alert" style="color: red" > </p>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        <script >
+            var btn = document.getElementsByClassName('btn')[0]
+            var emailString = "";
+            btn.addEventListener('click', resend)
+            function ValidateEmail(mail)
+            {   
+                let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')
+                if (regex.test(mail))
+                {
+                    return (true)
+                }
+                alert("You have entered an invalid email address!")
+                return (false)
+            }
+            function resend(event) {
+
+                if (!document.getElementsByTagName('input')[0] !== null) {
+                    emailString = document.getElementsByTagName('input')[0].value
+                }
+                if (ValidateEmail(emailString)) {
+                    $.ajax({url: "register?ac=sendEmailConfirm", type: 'POST', data: {email: emailString}, success: function (data) {
+                            console.log(data);
+                            if (data === "true") {
+
+                                btn.parentElement.parentElement.parentElement.innerHTML = `
+                            <p class="text-center">An Email Has been send to Your mail Please click on the link to register a new account <br>
+please wait a little bit before mail send to you if too long you can    <a href="#" onclick="resend()">Resend</a> </p>
+                `
+                            }
+                            if (data === "false") {
+                                document.getElementById('alert').innerText = "Your email has been using to create account please try again."
+                            }
+                        }})
+                }
+
+            }
+        </script>
+    </body>
+
+</html>

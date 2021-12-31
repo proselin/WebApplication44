@@ -1,0 +1,130 @@
+/* comments - (_blog.scss) 
+ * ------------------------------------------------------------------- */
+ .comments-wrap {
+	background-color: rgba(0, 0, 0, 0.08);
+	padding: 7.8rem 0 9rem;
+}
+
+/* comments
+ * -------------------------------------------------- */
+#comments {
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
+}
+
+#comments h3 {
+	margin-bottom: 1.5rem;
+}
+
+#comments ol,
+#comments ul {
+	list-style: none;
+}
+
+.commentlist {
+	margin: 3rem 0 5.4rem;
+	padding: 0;
+}
+
+.commentlist > li {
+	position: relative;
+	list-style: none;
+	margin: 0;
+	padding: 1.8rem 0;
+	padding-left: 14%;
+}
+
+.commentlist li .avatar {
+	position: absolute;
+	left: 0;
+	display: block;
+	height: 6rem;
+	width: 6rem;
+}
+
+.commentlist li .avatar img {
+	margin-top: 0.6rem;
+	height: 6rem;
+	width: 6rem;
+	border-radius: 100%;
+}
+
+.commentlist li .comment-info cite {
+	font-family: "montserrat-bold", sans-serif;
+	font-size: 1.8rem;
+	font-style: normal;
+	color: #151515;
+}
+
+.commentlist li .comment-info .comment-meta {
+	font-family: "muli-regular", sans-serif;
+	font-size: 1.4rem;
+	line-height: 3rem;
+	display: block;
+	color: #888888;
+}
+
+.commentlist li .comment-info .comment-meta .reply {
+	font-family: "montserrat-bold", sans-serif;
+	color: #151515;
+}
+
+.commentlist li .comment-info .comment-meta .sep {
+	margin: 0 5px;
+}
+
+.commentlist li .comment-text {
+	clear: both;
+	margin: 1.8rem 0 0 0;
+	padding: 0;
+}
+
+.commentlist li ul.children {
+	margin: 0;
+	padding: 1.8rem 0 0 0;
+}
+
+.commentlist li ul.children li {
+	padding-left: 5%;
+	padding-top: 1.8rem;
+}
+
+/* comments form
+ * ---------------------------- */
+#comments .respond {
+	padding-top: 4.2rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#comments form {
+	padding-top: 3rem;
+}
+
+#comments form .form-field {
+	margin-bottom: 3.9rem;
+}
+
+/* responsive:
+ * comments
+ * ------------------------------------------------------------------- */
+@media only screen and (max-width:768px) {
+	#comments form button {
+		width: 100%;
+	}
+
+}
+
+@media only screen and (max-width:600px) {
+	#comments h3 {
+		text-align: center;
+	}
+
+	.commentlist > li {
+		padding-left: 0;
+	}
+
+	.commentlist li .avatar {
+		display: none;
+	}
+
+}
